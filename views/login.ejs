@@ -8,14 +8,16 @@
 </head>
 <body>
     <%- include('../partials/navbar.ejs') %>
-    <form action="/sign-up" method="post">
+    <h1>Login</h1>
+    <form action="/login" method="post">
         <label for="username">Username:</label>
-        <input type="text" name="username" id="username">
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="">
+        <input type="text" name="username" id="">
         <label for="password">Password:</label>
         <input type="password" name="password" id="">
-        <button type="submit">Sign Up!</button>
+        <button type="submit">Login</button>
+        <% if (loginError) { %>
+         <p id="login-error"><%= loginError %></p>
+        <% } %>
     </form>
 </body>
 </html>
