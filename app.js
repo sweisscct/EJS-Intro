@@ -6,19 +6,20 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded( {extended: true }));
+app.set("view-engine", "ejs");
 
 app.get("/", (req, res) => {
-    res.sendFile("C:\\Users\\celeb\\Fullstack\\EJS-Intro\\index.html")
+    res.render("index.ejs");
 });
 
 app.get("/sign-up", (req, res) => {
-    res.sendFile("C:\\Users\\celeb\\Fullstack\\EJS-Intro\\sign-up.html");
+    res.render("sign-up.ejs");
 })
 
 app.post("/sign-up", (req, res) => {
     let username = req.body.username;
     console.log(username);
-    res.send(username);
+    res.render("welcome.ejs", { username });
 })
 
 app.listen(PORT, () => {
