@@ -10,5 +10,56 @@
     <%- include('../partials/navbar.ejs') %>
     <h1>Welcome to my first time with EJS</h1>
 
+    <h2>Cool Numbers!</h2>
+<script>
+    // for num = 2 -> 100
+// for divisor = 2 -> num
+// check if divisor divides into num
+// if any are yes, then the number is not prime
+// if all don't divide, the number is prime
+
+
+// num = 6
+// check 2, 3, 4, 5
+// 6%2 == 0
+// 6 is not prime
+
+// num = 7
+// check 2, 3, 4, 5, 6
+// 7%2 = 1
+// 7%3 = 1
+// 7%4 = 3
+// 7%5 = 2
+// 7%6 = 1
+// none of them divide, so 7 is prime
+
+for (let num=2; num<=100; num++) {
+    let isPrime = true;
+    for (divisor = 2; divisor < num; divisor++) {
+        if (num % divisor == 0) {
+            isPrime = false;
+            break;
+        }
+        if (isPrime) {
+            console.log(num);
+        }
+    }
+}
+</script>
+    <% for( let num = 2; num <= 100; num++ ) { %>
+        <% let isPrime = true; %>
+        <% for( let divisor = 2; divisor < num; divisor++ ) { %>
+            <% if (num%divisor == 0) { %>
+             <% isPrime = false; break; %>
+            <% } %>
+        <% } %>
+        <% if (isPrime) { %>
+            <p><%= num %></p>
+        <% } %>
+    <% } %>
+
+    <%# THis is a comment %>
+    <%#- <h1\>Hello</h1\> %>
+    <%#= <h1>Hello</h1> %>
 </body>
 </html>
